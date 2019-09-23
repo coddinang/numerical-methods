@@ -1,3 +1,4 @@
+# we need the math library
 import math
 
 
@@ -14,6 +15,7 @@ def bisectionMethod(a_n, b_n):
 
         print("the iterator", i, "and value", c_n)
         if i > 1:
+            # calculate the ERROR when 'i' is greater than 1 (i>1)
             ERROR = math.fabs((c_n - c_before) / c_n)
             if ERROR == 0:
                 print("the answer:", c_n)
@@ -26,7 +28,7 @@ def bisectionMethod(a_n, b_n):
         c_before = c_n
         i=i+1
 
-
+# this is the math function
 def function(x):
     f = math.pow(x, 3) - x - 2
     return f
