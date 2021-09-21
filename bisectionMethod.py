@@ -2,7 +2,7 @@
 import math
 
 
-def bisectionMethod(a_n, b_n, func):
+def bisection_method(a_n, b_n, func):
     i = 1
     c_before = 0
     while True:
@@ -28,14 +28,15 @@ def bisectionMethod(a_n, b_n, func):
         c_before = c_n
         i += 1
 
+
 if __name__ == '__main__':
     a_value = 1
     b_value = 2
     
     def math_function(x):
         """
-        This is a math function
+        This is a math function: f(x) = x^3 - x - 2
         """
         return x**3 - x - 2 
     
-    bisectionMethod(a_value, b_value, math_function)
+    bisection_method(a_value, b_value, math_function)
