@@ -2,23 +2,23 @@
 import math
 
 
-def bisectionMethod(a_n, b_n):
+def bisectionMethod(a_n, b_n, func):
     i = 1
     c_before = 0
     while True:
 
-        f_a = function(a_n)
+        f_a = func(a_n)
         c_n = (a_n + b_n) / 2
-        f_c = function(c_n)
+        f_c = func(c_n)
 
         sig = f_a * f_c
 
-        print("the iterator", i, "and value", c_n)
+        print(f'the iterator {i} and value {c_n}')
         if i > 1:
             # calculate the ERROR when 'i' is greater than 1 (i>1)
-            ERROR = math.fabs((c_n - c_before) / c_n)
-            if ERROR == 0:
-                print("the answer:", c_n)
+            error = math.fabs((c_n - c_before) / c_n)
+            if error == 0:
+                print(f'the answer: {c_n}')
                 break
 
         if sig > 0:
@@ -26,13 +26,16 @@ def bisectionMethod(a_n, b_n):
         elif sig < 0:
             b_n = c_n
         c_before = c_n
-        i=i+1
+        i += 1
 
-# this is the math function
-def function(x):
-    f = math.pow(x, 3) - x - 2
-    return f
-
-
-# RUN
-bisectionMethod(1, 2)
+if __name__ == '__main__':
+    a_value = 1
+    b_value = 2
+    
+    def math_function(x):
+        """
+        This is a math function
+        """
+        return x**3 - x - 2 
+    
+    bisectionMethod(a_value, b_value, math_function)
